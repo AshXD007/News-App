@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Share&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/news.css" />
+    <title>news</title>
+  </head>
+  <body>
+    <div class="startupPage">
+       <div class="heroStartup">
+        <div class="chooseText">
+            <span class="titleText">Choose your favorite <br> news topics</span> <span>(Min : 3)</span>
+            <img src="Assets/icons8-news.svg" class="newsIcon titleIcon" />
+          </div>
+          <div class="btnArea">
+            <button id="indian"class="intBtn">Indian</button>
+            <button id="business"class="intBtn">Business</button><button id="sports"class="intBtn">Sports</button>
+            <button id="world"class="intBtn">World</button><button id="politics"class="intBtn">Politics</button>
+            <button id="technology"class="intBtn">Tech</button><button id="startup"class="intBtn">Startups</button>
+            <button id="entertainment"class="intBtn">Movies</button><button id="science"class="intBtn">science</button>
+            <button id="automobile"class="intBtn">AutoMobile</button><button id="miscellaneous
+            "class="intBtn">Misc.</button>
+          </div>
+          <div class="locationArea">
+            <div class="locationText">
+                <img src="assets/icons8-location.svg" class="titleIcon locationIcon" />
+                <span class="titleText"> Location </span>
+              </div>
+              <div class="inputArea">
+                  <input type="text" placeholder="Country" id="countryInput">
+                  <input type="text" placeholder="City" id="cityInput">
+              </div>
+          </div>
+          <button class="nextBtn">
+            Next<img src="assets/icons8-double-right.svg" alt="" />
+          </button>
+       </div>
+    </div>
+    <script src="scripts/savedData.js"></script>
+    <script src="scripts/news.js"></script>
+  </body>
+</html>
