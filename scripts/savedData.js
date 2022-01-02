@@ -12,9 +12,13 @@ let lat;
 let lon;
 let tempCC ;
 let tempLL ;
-
+console.log(tempCC,tempLL);
 // DOM LOADED
 window.addEventListener('DOMContentLoaded',()=>{
+  const checkData = localStorage.getItem('dataAV');
+  if(checkData){
+    spModal.classList.add('sp-vis');
+  }
   getLoc();
   setTimeout(()=>{
     if(!lat && !lon){
@@ -36,9 +40,7 @@ nextBtn.addEventListener("click", () => {
   const City = document.getElementById("cityInput").value;
   userCity = City;
   userCountry = Country;
-  console.log(tempCC);
   checkApiCC();
-  console.log(tempCC);
   if(lat && lon){
     checkApiLL();
   }
@@ -47,15 +49,15 @@ nextBtn.addEventListener("click", () => {
   }else{
     setLocalStorage('pref',storedTopics);
     
-    if(tempLL === true ){
-      console.log(`move to news`);
-      spModal.classList.add('sp-vis');
-      setLocalStorage('dataAV',true);
-    }else if(tempCC === true ){
-      console.log(`move to news`);
-      spModal.classList.add('sp-vis');
-      setLocalStorage('dataAV',true);
-    }
+    setTimeout(()=>{
+      if(tempLL === true ){
+        spModal.classList.add('sp-vis');
+        setLocalStorage('dataAV',true);
+      }else if(tempCC === true ){
+        spModal.classList.add('sp-vis');
+        setLocalStorage('dataAV',true);
+      }
+    },1000);
   }
 
 });
