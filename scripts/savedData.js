@@ -12,7 +12,6 @@ let lat;
 let lon;
 let tempCC ;
 let tempLL ;
-console.log(tempCC,tempLL);
 // DOM LOADED
 window.addEventListener('DOMContentLoaded',()=>{
   const checkData = localStorage.getItem('dataAV');
