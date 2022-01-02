@@ -23,6 +23,28 @@ body{
   padding-left: 3px;
   background-color: #94d2bd;
 }
+.sp-vis{
+  visibility: hidden;
+}
+.modal{
+  width: 20rem;
+  height: 3rem;
+  line-height: 0.75rem;
+  position: fixed;
+  top: 30%;
+  left: 10%;
+  z-index: 10;
+  background-color: rgb(235, 171, 171);
+  
+}
+.modal h3{
+  font-family: var(--titleFont);
+  font-size: 1.25rem;
+  text-align: center;
+}
+.md-vis{
+  visibility: hidden;
+}
 .heroStartup {
   display: flex;
   flex-direction: column;
