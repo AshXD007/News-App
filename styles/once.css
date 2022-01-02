@@ -24,9 +24,10 @@ body{
   padding-left: 3px;
   background-color: #94d2bd;
   z-index: 9;
+  visibility: hidden;
 }
 .sp-vis{
-  visibility: hidden;
+  visibility: visible;
 }
 .modal{
   width: 20rem;

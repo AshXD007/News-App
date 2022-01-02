@@ -15,7 +15,7 @@ let tempLL ;
 // DOM LOADED
 window.addEventListener('DOMContentLoaded',()=>{
   const checkData = localStorage.getItem('dataAV');
-  if(checkData){
+  if(!checkData){
     spModal.classList.add('sp-vis');
   }
   getLoc();
@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded',()=>{
     if(!lat && !lon){
       toggleModal(3,removeModal)
     }
-  },3000)
+  },8000)
 })
 
 
@@ -52,9 +52,11 @@ nextBtn.addEventListener("click", () => {
       if(tempLL === true ){
         spModal.classList.add('sp-vis');
         setLocalStorage('dataAV',true);
+        location.reload();
       }else if(tempCC === true ){
         spModal.classList.add('sp-vis');
         setLocalStorage('dataAV',true);
+        location.reload();
       }
     },1000);
   }
