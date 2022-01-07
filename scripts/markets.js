@@ -6,13 +6,30 @@ const hero = document.querySelector('.hero');
 //events
 
 
-
-
+window.addEventListener('DOMContentLoaded', ()=>{
+    fetchData(0,30);
+})
 
 
 
 //functions
-
+const fetchData = async (x,y) =>{
+    const response = await fetch(`https://api.coinlore.net/api/tickers/?start=${x}&limit=${y}`);
+    const data = await response.json();
+    console.log(data);
+    for(let i = 0;i<data.data.length;i++){
+        const symbols = data.data[i].symbol;
+        const priceUSD = `$${data.data[i].price_usd}`;
+        const change = data.data[i].percent_change_24h;
+        let movement;
+        if(change[0] === '-'){
+            movement = '-';
+        }else{
+            movement = '+';
+        }
+        setView(symbols,priceUSD,change,movement);
+    }
+}
 const setView = (sym,price,change,move) => {
     const lsItem = document.createElement('div');
     const lsLogo = document.createElement('img');
@@ -25,7 +42,8 @@ const setView = (sym,price,change,move) => {
     lsItem.appendChild(lsPrice);
     lsItem.classList.add('lsItem');
     lsLogo.classList.add('lsLogo');
-    lsLogo.src = `https://cryptoicons.org/api/color/${sym.toLowerCase()}/400`;
+    // https://cryptoicons.org/api/color/${sym.toLowerCase()}/200
+    lsLogo.src = `https://creepy-corp.eu/git/jsupa/crypto-icons/get.php?token=${sym}`;
     lsName.classList.add('lsName');
     lsName.textContent = sym.toUpperCase();
     lsMove.classList.add('lsMove');
