@@ -1,6 +1,7 @@
 //declare & grab
 const hero = document.querySelector('.hero');
-
+let x2 = 0;
+let y2 = 30;
 
 
 //events
@@ -10,13 +11,21 @@ window.addEventListener('DOMContentLoaded', ()=>{
     fetchData(0,30);
 })
 
-
+window.addEventListener('scroll', ()=>{
+    
+    if(window.scrollY + window.innerHeight >= document.documentElement.scrollHeight -7){
+        fetchData(x2,y2);
+        
+    }
+})
 
 //functions
 const fetchData = async (x,y) =>{
     const response = await fetch(`https://api.coinlore.net/api/tickers/?start=${x}&limit=${y}`);
     const data = await response.json();
     console.log(data);
+    x2 += 30; 
+    y2 += 30; 
     for(let i = 0;i<data.data.length;i++){
         const symbols = data.data[i].symbol;
         const priceUSD = `$${data.data[i].price_usd}`;
@@ -48,13 +57,13 @@ const setView = (sym,price,change,move) => {
     lsName.textContent = sym.toUpperCase();
     lsMove.classList.add('lsMove');
     lsPrice.classList.add('lsPrice');
-    lsPrice.innerHTML = change +`<br>`+price;
+    lsPrice.innerHTML = change +`%<br>`+price;
     if(move === '+'){
         lsMove.src = `../assets/markets/icons8-increase.svg`;
-        lsPrice.style.color = 'green';
+        lsPrice.style.color = '#29EAA8';
     }else if (move === '-'){
         lsMove.src = `../assets/markets/icons8-decrease.svg`;
-        lsPrice.style.color = 'red';
+        lsPrice.style.color = '#ff033e';
     }
     hero.appendChild(lsItem);
 }
