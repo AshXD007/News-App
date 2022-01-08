@@ -15,6 +15,21 @@
 body {
   background-color: #000000;
 }
+/* loader */
+.loading{
+  position: fixed;
+  top: 30vh;
+  left: 30vw;
+  z-index: 78;
+  filter: invert(100);
+}
+.loaderStop{
+  visibility: hidden;
+  z-index: -78;
+}
+.loaderWorking{
+  visibility: hidden;
+}
 /* Left Name Part */
 .pageName {
   position: fixed;
@@ -91,7 +106,6 @@ body {
 }
 .itemText {
   position: absolute;
-  color: white;
   left: 1rem;
   bottom: 1rem;
   font-family: var(--titleFont);
