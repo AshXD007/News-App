@@ -13,6 +13,7 @@ let lon;
 let tempCC ;
 let tempLL ;
 // DOM LOADED
+loaderElem.classList.add('loaderStop')
 window.addEventListener('DOMContentLoaded',()=>{
   const checkData = localStorage.getItem('dataAV');
   if(!checkData){
